@@ -1,0 +1,21 @@
+{
+  "name": "create-blog-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "test-tool": "bin/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smitbarmase/create-blog-app.git"
+  },
+  "author": "Smit Barmase",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smitbarmase/create-blog-app/issues"
+  },
+  "homepage": "https://github.com/smitbarmase/create-blog-app#readme"
+}
