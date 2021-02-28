@@ -31,7 +31,7 @@ async function promptForMissingOptions(options) {
     questions.push({
       type: "input",
       name: "projectName",
-      message: "What do you want to name your project? (Required)",
+      message: "(Required) What do you want to name your project?",
       validate: function (input) {
         if (input.length > 0) return true;
         return "Enter valid project name!";
@@ -43,7 +43,7 @@ async function promptForMissingOptions(options) {
     questions.push({
       type: "input",
       name: "name",
-      message: "What is your name? (Optional)",
+      message: "(Optional) What is your name?",
       default: undefined,
     });
   }
@@ -52,7 +52,7 @@ async function promptForMissingOptions(options) {
     questions.push({
       type: "input",
       name: "github",
-      message: "What is your GitHub username? (Optional)",
+      message: "(Optional) What is your GitHub username?",
       default: undefined,
     });
   }
@@ -61,7 +61,7 @@ async function promptForMissingOptions(options) {
     questions.push({
       type: "input",
       name: "twitter",
-      message: "What is your Twitter username? (Optional)",
+      message: "(Optional) What is your Twitter username?",
       default: undefined,
     });
   }

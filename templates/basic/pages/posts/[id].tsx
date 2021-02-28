@@ -23,8 +23,11 @@ const Post: React.FC<PostProps> = ({ postData, theme, toggleTheme }) => {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className="text-4xl font-bold mb-6">{postData.title}</h1>
-        <div className="text-xl text-gray-500 dark:text-gray-300 mb-8">
+        <div className="mb-12 w-min">
+          <h1 className="text-4xl font-bold w-max mb-2">{postData.title}</h1>
+          <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-1 w-full"></div>
+        </div>
+        <div className="text-xl text-gray-500 dark:text-gray-300 my-8">
           <Date dateString={postData.date} />
         </div>
         <div
