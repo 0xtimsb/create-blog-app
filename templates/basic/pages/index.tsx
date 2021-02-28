@@ -1,10 +1,10 @@
-import { Dispatch, SetStateAction } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
 import { getSortedPostsData } from "../lib/posts";
+import { title, bio } from "../blog.config";
 
-import Layout, { siteTitle } from "../components/Layout";
+import Layout from "../components/Layout";
 import Date from "../components/Date";
 
 interface HomeProps {
@@ -22,14 +22,9 @@ const Home: React.FC<HomeProps> = ({ allPostsData, theme, toggleTheme }) => {
   return (
     <Layout theme={theme} toggleTheme={toggleTheme} home>
       <Head>
-        <title>{siteTitle}</title>
+        <title>{title}</title>
       </Head>
-      <section className="text-xl mb-14">
-        <p>
-          Hello, I’m <strong>SpongeBob</strong>. I'm a sea sponge who works as a
-          fry cook at the Krusty Krab, a fast food restaurant.
-        </p>
-      </section>
+      <section className="text-xl mb-14">{bio}</section>
       <section>
         <h2 className="text-4xl font-bold mb-12">Blog</h2>
         <ul className="space-y-8">

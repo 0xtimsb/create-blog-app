@@ -1,17 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
 import { FaGithub, FaMoon, FaSun, FaTwitter } from "react-icons/fa";
-
-const name = "SpongeBob SquarePants";
-export const siteTitle = "Next.js Sample Website";
+import { name, title } from "../blog.config";
 
 interface LayoutProps {
   home?: boolean;
   theme?: "light" | "dark";
   toggleTheme?: () => void;
 }
+
 const Layout: React.FC<LayoutProps> = ({
   children,
   home,
@@ -29,10 +27,10 @@ const Layout: React.FC<LayoutProps> = ({
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
+            title
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
-        <meta name="og:title" content={siteTitle} />
+        <meta name="og:title" content={title} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header>
@@ -64,12 +62,16 @@ const Layout: React.FC<LayoutProps> = ({
             <a href="www.github.com/smitbarmase">
               <FaGithub className="cursor-pointer hover:text-github" />
             </a>
-            <FaTwitter className="cursor-pointer hover:text-twitter" />
-            {theme === "dark" ? (
-              <FaSun className="cursor-pointer" onClick={toggleTheme} />
-            ) : (
-              <FaMoon className="cursor-pointer" onClick={toggleTheme} />
-            )}
+            <a href="www.github.com/smitbarmase">
+              <FaTwitter className="cursor-pointer hover:text-twitter" />
+            </a>
+            <button onClick={toggleTheme}>
+              {theme === "dark" ? (
+                <FaSun className="cursor-pointer" />
+              ) : (
+                <FaMoon className="cursor-pointer" />
+              )}
+            </button>
           </div>
         </div>
       </header>
