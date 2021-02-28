@@ -1,11 +1,16 @@
 {
   "name": "create-blog-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Set up a your blog app by running one command.",
   "main": "bin/create-blog-app.js",
   "bin": {
     "create-blog-app": "bin/create-blog-app.js"
   },
+  "files": [
+    "bin/",
+    "src/",
+    "templates/"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
