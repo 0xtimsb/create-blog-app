@@ -27,13 +27,13 @@ async function initGit(options) {
 }
 
 export async function createProject(options) {
-  const targetDir = path.resolve(process.cwd(), options.name);
+  const targetDir = path.resolve(process.cwd(), options.projectName);
   options.targetDirectory = targetDir;
 
   try {
     await access(targetDir, fs.constants.R_OK);
     console.error(
-      `%s Directory "${options.name}" already exists`,
+      `%s Directory "${options.projectName}" already exists`,
       chalk.red.bold("ERROR")
     );
     process.exit(1);
@@ -43,7 +43,7 @@ export async function createProject(options) {
   const templateDir = path.resolve(
     new URL(currentFileUrl).pathname,
     "../../templates",
-    options.typescript ? "typescript" : "javascript"
+    "basic"
   );
   options.templateDirectory = templateDir;
 
@@ -55,7 +55,7 @@ export async function createProject(options) {
   }
 
   console.log(
-    "\nCreating a new Next.js app in",
+    "\nCreating a new blog app in",
     chalk.green(options.targetDirectory)
   );
 
@@ -88,7 +88,7 @@ export async function createProject(options) {
   console.log(chalk.blueBright("\n\tnpm run dev"));
   console.log("\tStarts the development server.");
   console.log("\nWe suggest that you begin by typing:");
-  console.log(chalk.blueBright("\ncd"), options.name);
+  console.log(chalk.blueBright("\ncd"), options.projectName);
   console.log(chalk.blueBright("npm run dev\n"));
   return true;
 }

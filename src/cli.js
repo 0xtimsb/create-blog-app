@@ -5,28 +5,37 @@ import { createProject } from "./main";
 function parseArgumentsIntoOptions(rawArgs) {
   const args = arg(
     {
-      "--typescript": Boolean,
-      "-t": "--typescript",
+      "--name": String,
+      "--github": String,
+      "--twitter": String,
+      "-n": "--name",
+      "-g": "--github",
+      "-t": "--twitter",
     },
     {
       argv: rawArgs.slice(2),
     }
   );
   return {
-    name: args._[0] || undefined,
-    typescript: args["--typescript"] || false,
+    projectName: args._[0] || undefined,
+    name: args["--name"] || undefined,
+    github: args["--github"] || undefined,
+    twitter: args["--twitter"] || undefined,
   };
 }
 
 async function promptForMissingOptions(options) {
-  const questions = [];
+  let questions = [];
 
-  if (!options.typescript) {
+  if (!options.projectName) {
     questions.push({
-      type: "confirm",
-      name: "typescript",
-      message: "Do you want to use TypeScript?",
-      default: false,
+      type: "input",
+      name: "projectName",
+      message: "What do you want to name your project? (Required)",
+      validate: function (input) {
+        if (input.length > 0) return true;
+        return "Enter valid project name!";
+      },
     });
   }
 
@@ -34,19 +43,37 @@ async function promptForMissingOptions(options) {
     questions.push({
       type: "input",
       name: "name",
-      message: "What do you want to name your blog?",
-      validate: function (input) {
-        if (input.length > 0) return true;
-        return "Enter valid blog name";
-      },
+      message: "What is your name? (Optional)",
+      default: undefined,
+    });
+  }
+
+  if (!options.github) {
+    questions.push({
+      type: "input",
+      name: "github",
+      message: "What is your GitHub username? (Optional)",
+      default: undefined,
+    });
+  }
+
+  if (!options.twitter) {
+    questions.push({
+      type: "input",
+      name: "twitter",
+      message: "What is your Twitter username? (Optional)",
+      default: undefined,
     });
   }
 
   const answers = await inquirer.prompt(questions);
+
   return {
     ...options,
-    typescript: options.typescript || answers.typescript,
+    projectName: options.projectName || answers.projectName,
     name: options.name || answers.name,
+    github: options.github || answers.github,
+    twitter: options.twitter || answers.twitter,
   };
 }
 
