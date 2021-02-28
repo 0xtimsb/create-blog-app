@@ -65,10 +65,10 @@ const Layout: React.FC<LayoutProps> = ({
             </h2>
           </div>
           <div className="flex items-center space-x-7 text-2xl">
-            <a href="www.github.com/smitbarmase">
+            <a href={`www.github.com/${config.github}`}>
               <FaGithub className="cursor-pointer hover:text-github" />
             </a>
-            <a href="www.github.com/smitbarmase">
+            <a href={`www.github.com/${config.twitter}`}>
               <FaTwitter className="cursor-pointer hover:text-twitter" />
             </a>
             <button onClick={toggleTheme}>
@@ -91,6 +91,17 @@ const Layout: React.FC<LayoutProps> = ({
           </Link>
         </div>
       )}
+      <div className="py-14">
+        <a
+          className="text-base font-medium"
+          href="https://github.com/smitbarmase/create-blog-app"
+        >
+          <span>Built with</span>{" "}
+          <span className="cursor-pointer hover:underline text-pink-600">
+            create-blog-app
+          </span>
+        </a>
+      </div>
     </div>
   );
 };
