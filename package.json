@@ -1,10 +1,36 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "name": "create-blog-app",
+  "version": "1.0.0",
+  "description": "Set up a your blog app by running one command.",
+  "main": "src/index.js",
+  "bin": {
+    "create-blog-app": "bin/create-blog-app.js"
+  },
   "scripts": {
-    "create-blog-app": "node tasks/cba.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smitbarmase/create-blog-app.git"
+  },
+  "keywords": [
+    "cli",
+    "create-blog-app"
+  ],
+  "author": "smitbarmase",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smitbarmase/create-blog-app/issues"
+  },
+  "homepage": "https://github.com/smitbarmase/create-blog-app#readme",
+  "dependencies": {
+    "arg": "^5.0.0",
+    "chalk": "^4.1.0",
+    "esm": "^3.2.25",
+    "execa": "^5.0.0",
+    "inquirer": "^8.0.0",
+    "listr": "^0.14.3",
+    "ncp": "^2.0.0",
+    "pkg-install": "^1.0.0"
   }
 }
