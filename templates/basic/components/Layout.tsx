@@ -77,7 +77,7 @@ const Layout: React.FC<LayoutProps> = ({
       {!home && (
         <div className="mt-12">
           <Link href="/">
-            <a className="text-xl text-blue-500 font-medium hover:underline">
+            <a className="text-xl text-pink-600 font-medium hover:underline">
               ← Back to home
             </a>
           </Link>
