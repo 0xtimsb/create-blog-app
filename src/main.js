@@ -54,17 +54,22 @@ export async function createProject(options) {
     process.exit(1);
   }
 
+  console.log(
+    "\nCreating a new Next.js app in",
+    chalk.green(options.targetDirectory)
+  );
+
   const tasks = new Listr([
     {
-      title: "Copy project files",
+      title: "Copying project files.",
       task: () => copyTemplateFiles(options),
     },
     {
-      title: "Initialize git",
+      title: "Initializing git.",
       task: () => initGit(options),
     },
     {
-      title: "Install dependencies",
+      title: "Installing packages. This might take a couple of minutes.",
       task: () =>
         projectInstall({
           cwd: options.targetDirectory,
@@ -74,6 +79,16 @@ export async function createProject(options) {
 
   await tasks.run();
 
-  console.log("%s Blog ready to publish!", chalk.green.bold("DONE"));
+  console.log(
+    chalk.green("\nSuccess!"),
+    "Created blog at",
+    chalk.blueBright(options.targetDirectory)
+  );
+  console.log("\nInside that directory, you can run several commands:");
+  console.log(chalk.blueBright("\n\tnpm run dev"));
+  console.log("\tStarts the development server.");
+  console.log("\nWe suggest that you begin by typing:");
+  console.log(chalk.blueBright("\ncd"), options.name);
+  console.log(chalk.blueBright("npm run dev\n"));
   return true;
 }
