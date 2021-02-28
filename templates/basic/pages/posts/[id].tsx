@@ -14,11 +14,22 @@ interface PostProps {
   };
   theme: "light" | "dark";
   toggleTheme: () => void;
+  config: {
+    title: string;
+    name: string;
+    github: string;
+    twitter: string;
+  };
 }
 
-const Post: React.FC<PostProps> = ({ postData, theme, toggleTheme }) => {
+const Post: React.FC<PostProps> = ({
+  postData,
+  config,
+  theme,
+  toggleTheme,
+}) => {
   return (
-    <Layout theme={theme} toggleTheme={toggleTheme}>
+    <Layout config={config} theme={theme} toggleTheme={toggleTheme}>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -43,15 +54,18 @@ export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
+
     fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
+  const config = await import("../../blogconfig.json");
   return {
     props: {
       postData,
+      config: config.default,
     },
   };
 }

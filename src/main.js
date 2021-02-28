@@ -5,6 +5,7 @@ import path from "path";
 import { promisify } from "util";
 import execa from "execa";
 import Listr from "listr";
+import nconf from "nconf";
 import { projectInstall } from "pkg-install";
 
 const access = promisify(fs.access);
@@ -23,6 +24,24 @@ async function initGit(options) {
   if (result.failed) {
     return Promise.reject(new Error("Failed to initialize git"));
   }
+  return;
+}
+
+async function makeChangesToBlogConfig(options) {
+  const configPath = path.resolve(options.targetDirectory, "blogconfig.json");
+  nconf.use("file", { file: configPath });
+  nconf.load();
+  if (options.name) nconf.set("title", options.name + " | Blog");
+  if (options.name) nconf.set("name", options.name);
+  if (options.github) nconf.set("github", options.github);
+  if (options.twitter) nconf.set("twitter", options.twitter);
+  nconf.save((err) => {
+    if (err) {
+      return Promise.reject(
+        new Error("Failed to make changes to blog.config.js")
+      );
+    }
+  });
   return;
 }
 
@@ -74,6 +93,10 @@ export async function createProject(options) {
         projectInstall({
           cwd: options.targetDirectory,
         }),
+    },
+    {
+      title: "Finalizing things. Almost done.",
+      task: () => makeChangesToBlogConfig(options),
     },
   ]);
 

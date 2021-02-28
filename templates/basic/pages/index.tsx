@@ -2,7 +2,6 @@ import Head from "next/head";
 import Link from "next/link";
 
 import { getSortedPostsData } from "../lib/posts";
-import { title, bio } from "../blog.config";
 
 import Layout from "../components/Layout";
 import Date from "../components/Date";
@@ -16,15 +15,31 @@ interface HomeProps {
   }[];
   theme: "light" | "dark";
   toggleTheme: () => void;
+  config: {
+    title: string;
+    name: string;
+    github: string;
+    twitter: string;
+  };
 }
 
-const Home: React.FC<HomeProps> = ({ allPostsData, theme, toggleTheme }) => {
+const Home: React.FC<HomeProps> = ({
+  allPostsData,
+  config,
+  theme,
+  toggleTheme,
+}) => {
   return (
-    <Layout theme={theme} toggleTheme={toggleTheme} home>
+    <Layout config={config} theme={theme} toggleTheme={toggleTheme} home>
       <Head>
-        <title>{title}</title>
+        <title>{config.title}</title>
       </Head>
-      <section className="text-xl mb-14">{bio}</section>
+      <section className="text-xl mb-14">
+        <p>
+          Hello, I’m <strong>SpongeBob</strong>. I'm a sea sponge who works as a
+          fry cook at the Krusty Krab, a fast food restaurant.
+        </p>
+      </section>
       <section>
         <h2 className="text-4xl font-bold mb-12">Blog</h2>
         <ul className="space-y-8">
@@ -49,9 +64,13 @@ const Home: React.FC<HomeProps> = ({ allPostsData, theme, toggleTheme }) => {
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+
+  const config = await import("../blogconfig.json");
+
   return {
     props: {
       allPostsData,
+      config: config.default,
     },
   };
 }

@@ -2,18 +2,24 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaMoon, FaSun, FaTwitter } from "react-icons/fa";
-import { name, title } from "../blog.config";
 
 interface LayoutProps {
   home?: boolean;
   theme?: "light" | "dark";
   toggleTheme?: () => void;
+  config: {
+    title: string;
+    name: string;
+    github: string;
+    twitter: string;
+  };
 }
 
 const Layout: React.FC<LayoutProps> = ({
   children,
   home,
   theme,
+  config,
   toggleTheme,
 }) => {
   return (
@@ -27,10 +33,10 @@ const Layout: React.FC<LayoutProps> = ({
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
-            title
+            config.title
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
-        <meta name="og:title" content={title} />
+        <meta name="og:title" content={config.title} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header>
@@ -45,7 +51,7 @@ const Layout: React.FC<LayoutProps> = ({
                   src="/images/profile.jpg"
                   height={home ? 100 : 68}
                   width={home ? 100 : 68}
-                  alt={name}
+                  alt={config.name}
                   className="rounded-full"
                 />
               </a>
@@ -53,7 +59,7 @@ const Layout: React.FC<LayoutProps> = ({
             <h2>
               <Link href="/">
                 <a className={`font-bold ${home ? "text-4xl" : "text-2xl"}`}>
-                  {name}
+                  {config.name}
                 </a>
               </Link>
             </h2>
