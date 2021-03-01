@@ -40,7 +40,7 @@ const Layout: React.FC<LayoutProps> = ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header>
-        <div className="flex items-center justify-between py-10">
+        <div className="flex items-center justify-between py-12">
           <div
             className={`flex items-center ${home ? "space-x-6" : "space-x-4"}`}
           >
@@ -86,7 +86,19 @@ const Layout: React.FC<LayoutProps> = ({
         </div>
       </header>
       <main>{children}</main>
-      {!home && (
+      {home ? (
+        <div className="py-14">
+          <a
+            className="text-lg font-medium tracking-wide"
+            href="https://github.com/smitbarmase/create-blog-app"
+          >
+            <span>Built with</span>{" "}
+            <span className="cursor-pointer hover:underline text-pink-600">
+              create-blog-app
+            </span>
+          </a>
+        </div>
+      ) : (
         <div className="mt-12">
           <Link href="/">
             <a className="text-xl text-pink-600 font-medium hover:underline">
@@ -95,17 +107,6 @@ const Layout: React.FC<LayoutProps> = ({
           </Link>
         </div>
       )}
-      <div className="py-14">
-        <a
-          className="text-base font-medium"
-          href="https://github.com/smitbarmase/create-blog-app"
-        >
-          <span>Built with</span>{" "}
-          <span className="cursor-pointer hover:underline text-pink-600">
-            create-blog-app
-          </span>
-        </a>
-      </div>
     </div>
   );
 };
