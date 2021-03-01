@@ -1,7 +1,6 @@
 <h1 align="center">
   <p align="center">Create Blog App</p>
-  <img src="https://raw.githubusercontent.com/smitbarmase/create-blog-app/main/images/home.png" alt="Create-Blog-App" height="300px">
-  <img src="https://raw.githubusercontent.com/smitbarmase/create-blog-app/main/images/post.png" alt="Create-Blog-App" height="300px">
+  <img src="https://raw.githubusercontent.com/smitbarmase/create-blog-app/main/images/preview.png" alt="Create-Blog-App" height="300px">
 </h1>
 
 <p align="center">
@@ -16,7 +15,6 @@
 ## Introduction
 
 Create Blog App is a project for building, deploying, and maintaining blogs easily.
-
 
 ## Installation
 
