@@ -19,12 +19,11 @@ Please **ask first** if somebody else is already working on this or the core dev
 ### Overview of directory structure
 
 ```
-packages/
-  babel-preset-react-app/
-  create-react-app/
-  eslint-config-react-app/
-  react-dev-utils/
-  react-scripts/
+bin
+images
+src
+templates
+  basic
 ```
 
 ## Setting Up a Local Copy
