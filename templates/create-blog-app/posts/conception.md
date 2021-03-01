@@ -1,5 +1,5 @@
 ---
-title: "Conception - SpongeBob SquarePants"
+title: "The Conception"
 date: "2021-02-26"
 ---
 

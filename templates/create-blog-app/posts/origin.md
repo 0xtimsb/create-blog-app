@@ -1,5 +1,5 @@
 ---
-title: "The Origin - SpongeBob SquarePants"
+title: "The Origin"
 date: "2021-03-01"
 ---
 

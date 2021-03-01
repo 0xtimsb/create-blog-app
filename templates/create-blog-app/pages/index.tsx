@@ -29,21 +29,23 @@ const Home: React.FC<HomeProps> = ({
       <Head>
         <title>{config.title}</title>
       </Head>
-      <section className="text-xl mb-14">
+      <section className="text-lg sm:text-xl mb-10 sm:mb-14">
         <p>
           Hello, I’m <strong>SpongeBob</strong>. I'm a sea sponge who works as a
           fry cook at the Krusty Krab, a fast food restaurant.
         </p>
       </section>
       <section>
-        <h2 className="text-4xl font-bold mb-12">Blog</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10 sm:mb-12">Blog</h2>
         <ul className="space-y-8">
           {allPostsData.map(({ id, date, title }) => (
-            <li key={id} className="flex flex-col space-y-4">
+            <li key={id} className="flex flex-col space-y-3">
               <Link href={`/posts/${id}`}>
-                <a className="w-min group">
-                  <div className="text-3xl font-medium w-max mb-2">{title}</div>
-                  <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-1 w-full transform group-hover:translate-x-2 transition-transform"></div>
+                <a className="sm:w-min group">
+                  <h1 className="sm:w-max max-w-3xl text-2xl md:text-3xl font-medium leading-normal mb-1">
+                    {title}
+                  </h1>
+                  <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-1 transform group-hover:translate-x-2 transition-transform"></div>
                 </a>
               </Link>
               <small className="text-lg text-gray-500 dark:text-gray-300">

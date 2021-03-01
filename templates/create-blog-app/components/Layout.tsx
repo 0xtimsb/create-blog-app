@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({
   toggleTheme,
 }) => {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-6 sm:px-8 md:px-6 lg:px-0">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -40,23 +40,20 @@ const Layout: React.FC<LayoutProps> = ({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header>
-        <div className="flex items-center justify-between py-12">
+        <div className="flex items-center justify-between sm:py-12 py-10">
           <div
             className={`flex items-center ${home ? "space-x-6" : "space-x-4"}`}
           >
             <Link href="/">
               <a>
-                <Image
-                  priority
+                <img
                   src="/images/profile.jpg"
-                  height={home ? 100 : 68}
-                  width={home ? 100 : 68}
                   alt={config.name}
-                  className="rounded-full"
+                  className={`${home ? "h-20 w-20" : "h-14 w-14"} rounded-full`}
                 />
               </a>
             </Link>
-            <h2>
+            <h2 className="hidden md:block">
               <Link href="/">
                 <a className={`font-bold ${home ? "text-4xl" : "text-2xl"}`}>
                   {config.name}
@@ -64,7 +61,7 @@ const Layout: React.FC<LayoutProps> = ({
               </Link>
             </h2>
           </div>
-          <div className="flex items-center space-x-7 text-2xl">
+          <div className="flex items-center space-x-10 md:space-x-7 text-3xl md:text-2xl">
             {config.github !== "" && (
               <a target="_blank" href={`https://github.com/${config.github}`}>
                 <FaGithub className="cursor-pointer hover:text-github" />
@@ -85,6 +82,9 @@ const Layout: React.FC<LayoutProps> = ({
           </div>
         </div>
       </header>
+      {home && (
+        <h2 className="md:hidden font-bold text-2xl mb-4">{config.name}</h2>
+      )}
       <main>{children}</main>
       {home ? (
         <div className="py-14">
@@ -102,7 +102,7 @@ const Layout: React.FC<LayoutProps> = ({
         <div className="mt-12">
           <Link href="/">
             <a className="text-xl text-pink-600 font-medium hover:underline">
-              ← Back to home
+              ← Back
             </a>
           </Link>
         </div>
