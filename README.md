@@ -10,9 +10,7 @@
   <a href="#license"><img src="https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000"></a>
 </p>
 
-> Create your blog with one command
-
-> `npx create-blog-app`
+> Create your blog with one command  `npx create-blog-app`
 
 ## Introduction
 
