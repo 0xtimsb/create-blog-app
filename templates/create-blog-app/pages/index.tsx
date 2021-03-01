@@ -41,9 +41,9 @@ const Home: React.FC<HomeProps> = ({
           {allPostsData.map(({ id, date, title }) => (
             <li key={id} className="flex flex-col space-y-4">
               <Link href={`/posts/${id}`}>
-                <a className="w-min">
+                <a className="w-min group">
                   <div className="text-3xl font-medium w-max mb-2">{title}</div>
-                  <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-1 w-full"></div>
+                  <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 h-1 w-full transform group-hover:translate-x-2 transition-transform"></div>
                 </a>
               </Link>
               <small className="text-lg text-gray-500 dark:text-gray-300">
