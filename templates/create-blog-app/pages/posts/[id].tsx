@@ -1,17 +1,12 @@
 import Head from "next/head";
 
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { getAllPostIds, getPostData, PostData } from "../../lib/posts";
 
 import Date from "../../components/Date";
 import Layout from "../../components/Layout";
 
 interface PostProps {
-  postData: {
-    id: any;
-    contentHtml: string;
-    date: string;
-    title: string;
-  };
+  postData: PostData;
   theme: "light" | "dark";
   toggleTheme: () => void;
   config: {

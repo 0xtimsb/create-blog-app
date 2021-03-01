@@ -62,7 +62,7 @@ export async function createProject(options) {
   const templateDir = path.resolve(
     new URL(currentFileUrl).pathname,
     "../../templates",
-    "basic"
+    "create-blog-app"
   );
   options.templateDirectory = templateDir;
 

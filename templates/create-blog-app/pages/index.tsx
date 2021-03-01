@@ -1,18 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import { getSortedPostsData } from "../lib/posts";
+import { getSortedPostsData, PostData } from "../lib/posts";
 
 import Layout from "../components/Layout";
 import Date from "../components/Date";
 
 interface HomeProps {
-  allPostsData: {
-    id: string;
-    date: string;
-    title: string;
-    contentHtml: string;
-  }[];
+  allPostsData: PostData[];
   theme: "light" | "dark";
   toggleTheme: () => void;
   config: {
