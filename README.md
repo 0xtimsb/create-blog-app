@@ -1,9 +1,8 @@
-<h1 align="center">
-  <p align="center">Create Blog App</p>
-  <img src="https://raw.githubusercontent.com/smitbarmase/create-blog-app/main/images/preview.png" alt="Create-Blog-App" height="300px">
-</h1>
+# Create Blog App
 
-<p align="center">
+<img src="https://raw.githubusercontent.com/smitbarmase/create-blog-app/main/images/preview.png" alt="Create-Blog-App" height="300px">
+
+<p>
   <a href="https://www.npmjs.com/package/create-blog-app"><img src="https://img.shields.io/npm/v/create-blog-app.svg?style=flat" alt="npm version"></a>
   <a href="CONTRIBUTING.md#pull-requests"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
   <a href= "https://github.com/prettier/prettier"><img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg"></a>
